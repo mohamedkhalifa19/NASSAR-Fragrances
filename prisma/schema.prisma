@@ -1,0 +1,48 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id            String  @id @default(cuid())
+  name          String
+  price         Float
+  rate          Float   @default(0)
+  discountPrice Float?
+  category      String
+  badge         String?
+  imageUrl      String?
+  stockQuantity Int     @default(0)
+  createdAt     String
+  updatedAt     String
+
+  @@map("products")
+}
+
+model Offer {
+  id           String  @id @default(cuid())
+  badge        String?
+  imageUrl     String?
+  availability Boolean @default(true)
+  description  String
+  createdAt    String
+  updatedAt    String
+
+  @@map("offers")
+}
+
+model News {
+  id          String  @id @default(cuid())
+  imageUrl    String?
+  description String
+  createdAt   String
+  updatedAt   String
+  title       String
+
+  @@map("news")
+}
