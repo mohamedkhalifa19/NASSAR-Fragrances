@@ -31,7 +31,7 @@ function OfferCardSlide({ offer }: IProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
         {/* Ribbon */}
-        <div className="absolute top-4 -left-10 bg-red-600 text-white text-[10px] font-bold font-almarai px-12 py-1 rotate-[-35deg] shadow-md">
+        <div className="absolute text-center top-4 left-4 rounded-md bg-red-600 text-white text-[12px] font-bold font-almarai px-12 py-1  shadow-md">
           {offer.availability ? offer.badge : "نفذت الكمية"}
         </div>
       </div>

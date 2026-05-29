@@ -1,5 +1,7 @@
+"use client";
 import { INews } from "@/app/libs/types";
 import { CalendarDays } from "lucide-react";
+import { redirect } from "next/navigation";
 
 interface IProps {
   news: INews;
@@ -14,7 +16,10 @@ function NewsCard({ news }: IProps) {
     });
   };
   return (
-    <div className="bg-white my-2 w-full max-w-md h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer group flex flex-col">
+    <div
+      onClick={() => redirect(`/news/${news.id}`)}
+      className="bg-white my-2 w-full max-w-md h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer group flex flex-col"
+    >
       {/* Image */}
       <div className="relative w-full h-[220px] overflow-hidden">
         <img
@@ -37,7 +42,7 @@ function NewsCard({ news }: IProps) {
         </h2>
 
         {/* Description */}
-        <p className="text-gray-500  text-sm font-almarai leading-relaxed whitespace-pre-line break-words mb-5 flex-1">
+        <p className="text-gray-500  text-sm font-almarai leading-relaxed  line-clamp-3">
           {news.description}
         </p>
 

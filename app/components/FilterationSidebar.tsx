@@ -12,24 +12,43 @@ import { IProduct } from "../libs/types";
 interface IProps {
   isFilterationSidebarOpen: boolean;
   setIsFilterationSidebarOpen: (val: boolean) => void;
+
   perfumes: IProduct[];
   setFilteredPerfumes: (val: IProduct[]) => void;
+
+  category: string;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
+
+  fromPrice: string;
+  setFromPrice: React.Dispatch<React.SetStateAction<string>>;
+
+  toPrice: string;
+  setToPrice: React.Dispatch<React.SetStateAction<string>>;
+
+  sort: string;
+  setSort: React.Dispatch<React.SetStateAction<string>>;
+  reset: () => void;
+  Sorting: (val: IProduct[]) => IProduct[];
 }
 function FilterationSidebar({
   isFilterationSidebarOpen,
   setIsFilterationSidebarOpen,
   perfumes,
   setFilteredPerfumes,
+  category,
+  setCategory,
+  fromPrice,
+  setFromPrice,
+  toPrice,
+  setToPrice,
+  sort,
+  setSort,
+  reset,
+  Sorting,
 }: IProps) {
   const closeFilterationSidebar = () => {
     setIsFilterationSidebarOpen(false);
   };
-  const [category, setCategory] = useState("للجنسين");
-  const [fromPrice, setFromPrice] = useState<string>("");
-  const [toPrice, setToPrice] = useState<string>(
-    `${Math.max(...perfumes.map((p) => p.price || 0))}`,
-  );
-  const [sort, setSort] = useState("top-rating");
 
   const handelFilteration = () => {
     console.log(category, perfumes);
@@ -45,22 +64,10 @@ function FilterationSidebar({
           p.price >= +fromPrice &&
           p.price <= +toPrice,
       );
-    if (sort === "top-rating")
-      setFilteredPerfumes(filteredPerfumes.sort((a, b) => b.rate - a.rate));
-    else if (sort === "high-to-low")
-      setFilteredPerfumes(filteredPerfumes.sort((a, b) => b.price - a.price));
-    else
-      setFilteredPerfumes(filteredPerfumes.sort((a, b) => a.price - b.price));
+    setFilteredPerfumes(Sorting(filteredPerfumes));
     setIsFilterationSidebarOpen(false);
   };
-  const reset = () => {
-    setFilteredPerfumes(perfumes);
-    setCategory("all");
-    setFromPrice("");
-    setToPrice("");
-    setSort("top-rating");
-    setIsFilterationSidebarOpen(false);
-  };
+
   return (
     <aside
       className={`bg-[#0f0f0f] flex shrink-0 min-w-0  flex-col fixed top-0 right-0 lg:overflow-hidden sm:overflow-y-auto overflow-x-hidden xl:overflow-hidden text-black transition-transform ease-in-out duration-200 transform       p-4 md:w-1/3  lg:w-1/4 w-full h-full z-[20]`}

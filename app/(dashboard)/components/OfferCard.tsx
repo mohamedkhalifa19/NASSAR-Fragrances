@@ -1,5 +1,6 @@
 "use client";
 import { IOffer } from "@/app/libs/types";
+import { redirect } from "next/navigation";
 import { FaWhatsapp } from "react-icons/fa6";
 
 interface IProps {
@@ -20,7 +21,10 @@ function OfferCard({ offer }: IProps) {
   };
 
   return (
-    <div className="group overflow-hidden rounded-3xl bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+    <div
+      onClick={() => redirect(`/offers/${offer.id}`)}
+      className="group overflow-hidden rounded-3xl bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+    >
       {/* Image */}
       <div className="relative overflow-hidden bg-stone-100">
         <img
@@ -33,7 +37,7 @@ function OfferCard({ offer }: IProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
         {/* Ribbon */}
-        <div className="absolute text-center top-4 -left-10 bg-red-600 text-white text-[10px] font-bold font-almarai px-12 py-1 rotate-[-35deg] shadow-md">
+        <div className="absolute text-center top-4 left-4 rounded-md bg-red-600 text-white text-[12px] font-bold font-almarai px-12 py-1  shadow-md">
           {offer.availability ? offer.badge : "نفذت الكمية"}
         </div>
       </div>
@@ -41,7 +45,7 @@ function OfferCard({ offer }: IProps) {
       {/* Content */}
       <div className="p-4 text-center">
         {/* Description */}
-        <p className="text-base font-medium text-stone-800 font-tajawal  leading-relaxed text-right whitespace-pre-line">
+        <p className="text-base line-clamp-3 font-medium text-stone-800 font-tajawal  leading-relaxed text-right ">
           {offer.description}
         </p>
 

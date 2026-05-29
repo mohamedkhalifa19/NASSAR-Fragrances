@@ -52,6 +52,7 @@ function PerfumeCard({ perfume }: IProps) {
         <img
           src={perfume.imageUrl ?? ""}
           alt={perfume.name}
+          loading="lazy"
           className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-500"
         />
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div
-      className="min-h-screen bg-[#f5f5f7] flex flex-col font-almarai"
+      className="min-h-screen bg-[#f5f5f7] flex flex-col font-almarai my-12"
       dir="rtl"
     >
     
