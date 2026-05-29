@@ -14,7 +14,7 @@ export async function getNews(): Promise<ActionResult<INews[]>> {
 
     return {
       success: true,
-      data: news.map((n) => ({
+      data: news.map((n: any) => ({
         id: n.id,
         title: n.title,
         description: n.description,
