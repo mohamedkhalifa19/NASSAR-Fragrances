@@ -17,7 +17,7 @@ export async function getProducts(): Promise<ActionResult<IProduct[]>> {
 
     return {
       success: true,
-      data: products.map((p) => ({
+      data: products.map((p: any) => ({
         id: p.id,
         name: p.name,
         price: p.price,

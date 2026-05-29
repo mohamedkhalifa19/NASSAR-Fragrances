@@ -14,7 +14,7 @@ export async function getOffers(): Promise<ActionResult<IOffer[]>> {
 
     return {
       success: true,
-      data: offers.map((o) => ({
+      data: offers.map((o:any) => ({
         id: o.id,
         badge: o.badge,
         imageUrl: o.imageUrl,
