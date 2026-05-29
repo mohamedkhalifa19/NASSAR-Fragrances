@@ -1,6 +1,6 @@
 "use client";
 
-import { IOrder, IProduct } from "@/app/libs/types";
+import { IOrder } from "@/app/libs/types";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store";
 import { deleteCartItm, editCart } from "../store/features/cart/cart";
