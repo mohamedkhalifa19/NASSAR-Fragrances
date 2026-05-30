@@ -49,9 +49,7 @@ export default function PerfumesClient({
     setOriginalPerfumes(initialPerfumes);
     setToPrice(`${Math.max(...initialPerfumes.map((p) => p.price || 0))}`);
   }, [initialPerfumes]);
-  useEffect(() => {
-    router.push("?page=1");
-  }, []);
+
   useEffect(() => {
     if (searchParams?.get("page")) reset();
   }, [searchParams?.get("page")]);
