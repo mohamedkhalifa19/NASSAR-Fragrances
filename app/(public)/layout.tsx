@@ -5,7 +5,6 @@ import { FaWhatsapp } from "react-icons/fa";
 import Providers from "../components/Providers";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import NetworkToast from "../components/NetworkToast";
 
 export default function RootLayout({
   children,

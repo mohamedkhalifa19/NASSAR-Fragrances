@@ -31,7 +31,7 @@ const reemKufi = Reem_Kufi({
 
 export const metadata: Metadata = {
   title: "Nassar Perfumes",
-  icons: { icon: "/images/logo.png" },
+  icons: { icon: "/images/favicon.ico" },
   description:
     "Nassar Perfumes is a fragrance store offering high-quality, long-lasting perfumes inspired by classic and modern scents. It provides a wide range of fragrances for every style and occasion, helping you find your signature scent at an affordable price.",
 };
