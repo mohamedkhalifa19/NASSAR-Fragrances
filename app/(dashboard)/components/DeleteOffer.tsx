@@ -17,7 +17,6 @@ function DeleteOffer() {
   const dispatch = useDispatch();
   const { offer } = useSelector((state: RootState) => state);
   const { selectedOffer, isDeleteOffer } = offer;
-  console.log("selectedOffer", selectedOffer);
   const handleCancel = () => {
     dispatch(setIsDeleteOffer(false));
   };

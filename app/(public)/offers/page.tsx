@@ -2,7 +2,12 @@ import Offers from "@/app/components/Offers";
 import OfferCardSkeleton from "@/app/components/Skelton/OfferCardSkeleton";
 import { Suspense } from "react";
 
-function page() {
+async function page({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const page = Number((await searchParams).page) || 1;
   return (
     <div className="w-full h-full mt-[100px]">
       <main className="container w-full h-full mx-auto px-2">
@@ -19,7 +24,7 @@ function page() {
           }
         >
           <div className="container mx-auto mt-10  px-5 lg:px-0">
-            <Offers />
+            <Offers page={page} />
           </div>
         </Suspense>
       </main>

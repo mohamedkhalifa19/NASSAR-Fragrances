@@ -2,7 +2,7 @@ import { cache } from "react";
 import { getNews } from "../actions/news.actions";
 import { getOffers } from "../actions/offer.actions";
 import { getProducts } from "../actions/product.actions";
-import { ActionResult, INews, IOffer, IProduct } from "../libs/types";
+import { ActionResult, ILogin, INews, IOffer, IProduct } from "../libs/types";
 
 export const getPerfumes = cache(async () => {
   const result: ActionResult<IProduct[]> = await getProducts();
@@ -48,3 +48,5 @@ export const PerfumeEMPTY_FORM = {
   imagePreview: "",
   rate: "",
 };
+
+export const intialLoginForm: ILogin = { email: "", password: "" };

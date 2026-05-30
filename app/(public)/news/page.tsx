@@ -2,7 +2,13 @@ import News from "@/app/components/News";
 import NewsCardSkeleton from "@/app/components/Skelton/NewsCardSkeleton";
 import { Suspense } from "react";
 
-function page() {
+async function page({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const page = Number((await searchParams).page) || 1;
+
   return (
     <Suspense
       fallback={
@@ -13,7 +19,7 @@ function page() {
         </div>
       }
     >
-      <News />
+      <News page={page} />
     </Suspense>
   );
 }

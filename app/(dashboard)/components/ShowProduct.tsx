@@ -13,7 +13,6 @@ import {
   setIsEditPerfume,
   setIsShowPerfume,
 } from "@/app/store/features/perfume/perfume";
-// import { closeShowPerfume, openEditPerfume } from "@/app/features/perfumeSlice";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -49,7 +48,6 @@ function ShowProduct() {
   const { isShowPerfume, selectedPerfume } = perfume;
 
   const [activeImg, setActiveImg] = useState(0);
-  console.log(selectedPerfume?.imageUrl);
   // Support both single imageUrl and an images array
   const images: string[] = (selectedPerfume as any)?.images?.length
     ? (selectedPerfume as any).images

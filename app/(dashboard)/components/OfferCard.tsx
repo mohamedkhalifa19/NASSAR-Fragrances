@@ -30,6 +30,7 @@ function OfferCard({ offer }: IProps) {
         <img
           src={offer.imageUrl || ""}
           alt={offer.description}
+          loading="lazy"
           className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-500"
         />
 

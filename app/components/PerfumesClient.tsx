@@ -23,7 +23,6 @@ export default function PerfumesClient({
   const searchParams = useSearchParams();
   const search = searchParams?.get("search") || "";
   const router = useRouter();
-  const pathname = usePathname();
 
   const [filteredPerfumes, setFilteredPerfumes] =
     useState<IProduct[]>(initialPerfumes);
@@ -46,23 +45,19 @@ export default function PerfumesClient({
     setIsFilterationSidebarOpen(false);
   };
   const [sort, setSort] = useState("top-rating");
-  useEffect(() => {
-    if (!search?.trim()) {
-      router.replace("/perfumes?page=1");
-    }
-  }, [search, router, pathname]);
+
   useEffect(() => {
     setFilteredPerfumes(initialPerfumes);
     setOriginalPerfumes(initialPerfumes);
     setToPrice(`${Math.max(...initialPerfumes.map((p) => p.price || 0))}`);
   }, [initialPerfumes]);
   useEffect(() => {
+    router.push("?page=1");
     setFullPerfumes(fullPerfumes);
     setToPrice(`${Math.max(...fullPerfumes.map((p) => p.price || 0))}`);
   }, []);
   useEffect(() => {
     setSearchTxt(searchParams?.get("search") ?? "");
-    console.log(searchParams?.get("search"), search, FullPerfumes);
     if (search.trim()) {
       const filtered = fullPerfumes.filter((p) =>
         p.name.trim().toLowerCase().startsWith(search.trim().toLowerCase()),
@@ -130,26 +125,11 @@ export default function PerfumesClient({
             onFilterClick={() => setIsFilterationSidebarOpen(true)}
           />
         </div>
-
-        {filteredPerfumes.length > 0 ? (
-          <Suspense fallback={<></>}>
-            {" "}
-            <Perfumes
-              isFilterationSidebarOpen={isFilterationSidebarOpen}
-              perfumes={filteredPerfumes}
-            />
-          </Suspense>
-        ) : (
-          <div className="h-screen flex justify-center items-center">
-            <h1 className="font-cairo text-xl md:text-3xl font-bold text-red-900">
-              لا توجد اي عطور حتي الآن
-            </h1>
-          </div>
-        )}
-        <div className="my-4">
-          {" "}
-          <PaginationDemo pages={totalPages} />
-        </div>
+        <Perfumes
+          isFilterationSidebarOpen={isFilterationSidebarOpen}
+          perfumes={filteredPerfumes}
+          totalPages={totalPages}
+        />
       </main>
 
       {isFilterationSidebarOpen && (

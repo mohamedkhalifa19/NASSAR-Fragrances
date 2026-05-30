@@ -19,7 +19,6 @@ function ShowOffer() {
   const dispatch = useDispatch();
   const { offer } = useSelector((state: RootState) => state);
   const { selectedOffer, isShowOffer } = offer;
-  console.log(selectedOffer);
   const [activeImg, setActiveImg] = useState(0);
 
   const images: string[] = (selectedOffer as any)?.images?.length

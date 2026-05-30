@@ -7,16 +7,22 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { useRouter } from "next/navigation";
-import { MouseEvent, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { MouseEvent, useEffect, useState } from "react";
 
 interface IProps {
   pages: number;
+  rowsBerPage: number;
 }
-export function PaginationDemo({ pages }: IProps) {
-  const length = Math.ceil(pages / 5);
+export function PaginationDemo({ pages, rowsBerPage }: IProps) {
+  const length = Math.ceil(pages / rowsBerPage);
   const router = useRouter();
   const [page, setPage] = useState<number>(1);
+
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    if (!searchParams.get("page")) setPage(1);
+  }, [searchParams]);
   const handlePrev = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const value = page > 1 ? page - 1 : 1;

@@ -28,9 +28,7 @@ function ShoppingCart({ isShoppingCartOpen, setIsShoppingCartOpen }: IProps) {
       )
       .join("\n");
 
-    console.log(message);
     const msg = `${message} إجمالي الطلبات =${cartItems.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)} جنية`;
-    console.log(msg);
     const url = `https://wa.me/${WHATSAPPNUMBER}?text=${encodeURIComponent(
       msg,
     )}`;

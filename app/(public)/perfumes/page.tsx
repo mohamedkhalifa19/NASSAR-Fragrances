@@ -12,7 +12,9 @@ const getCachedPerfumes = unstable_cache(
         take: 5,
         skip: (page - 1) * 5,
       });
-    } catch (err) {return []}
+    } catch (err) {
+      return [];
+    }
   },
   ["perfumes-cache"],
   {
@@ -27,7 +29,7 @@ export default async function PerfumesPage({
   searchParams: Promise<{ page?: string }>;
 }) {
   try {
-    const page = Number((await searchParams).page);
+    const page = Number((await searchParams).page) || 1;
     const perfumes = await getCachedPerfumes(page);
     const fullPerfumes = await prisma.product.findMany({
       orderBy: { rate: "desc" },
@@ -35,11 +37,11 @@ export default async function PerfumesPage({
     const totalPages = await prisma.product.count();
     // if (!perfumes) return <PerfumesPageSkelton />;
     return (
-        <PerfumesClient
-          fullPerfumes={fullPerfumes}
-          initialPerfumes={perfumes}
-          totalPages={totalPages}
-        />
+      <PerfumesClient
+        fullPerfumes={fullPerfumes}
+        initialPerfumes={perfumes}
+        totalPages={totalPages}
+      />
     );
   } catch (err) {
     // return <PerfumesPageSkelton />;

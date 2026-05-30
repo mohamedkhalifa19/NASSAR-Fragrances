@@ -1,5 +1,7 @@
 "use client";
 import { login } from "@/app/actions/admin.actions";
+import PasswordInput from "@/app/components/PasswordInput";
+import { intialLoginForm } from "@/app/data";
 import { ILogin } from "@/app/libs/types";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,7 +18,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export default function page() {
-  const intialLoginForm: ILogin = { email: "", password: "" };
   const [form, setForm] = useState<ILogin>(intialLoginForm);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -101,23 +102,7 @@ export default function page() {
                 )}
               </div>
               <div className="grid gap-2 h-14 md:h-12 font-semibold  font-almarai">
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  placeholder="كلمة السر "
-                  value={form.password}
-                  className={`h-full ${
-                    errors?.password
-                      ? "border-red-400 bg-red-50"
-                      : "border-stone-200 bg-stone-50"
-                  }`}
-                  onChange={(e) => {
-                    setForm((prev) => {
-                      return { ...prev, password: e.target.value };
-                    });
-                  }}
-                />
+                <PasswordInput errors={errors} form={form} setForm={setForm} />
                 {errors?.password && (
                   <p className="text-xs text-red-500 font-cairo">
                     {errors.password}

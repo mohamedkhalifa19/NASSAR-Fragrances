@@ -32,7 +32,7 @@ function OffersSliderClient({ offers }: IProps) {
           slidesPerView={1}
           loop={offers.length >= 1}
           autoplay={{
-            delay: 3000,
+            delay: 6000,
             disableOnInteraction: false,
           }}
           pagination={{ clickable: true }}

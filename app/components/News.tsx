@@ -1,15 +1,34 @@
 import { unstable_cache } from "next/cache";
-import NewsCard from "../(dashboard)/components/NewsCard";
-import { getNews } from "../actions/news.actions";
-import { ActionResult, INews } from "../libs/types";
+import { INews } from "../libs/types";
+import NewsClient from "../(dashboard)/components/NewsClient";
+import { prisma } from "../libs/prisma";
 
-const getCachedNews = unstable_cache(async () => getNews(), ["news-cache"], {
-  revalidate: 10,
-  tags: ["news"],
-});
-async function News() {
-  let news: ActionResult<INews[]> = await getCachedNews();
-  if (!news.success)
+const getCachedNews = unstable_cache(
+  async (page: number = 1) => {
+    try {
+      return await prisma.news.findMany({
+        orderBy: { createdAt: "asc" },
+        take: 3,
+        skip: (page - 1) * 3,
+      });
+    } catch (err) {
+      return [];
+    }
+  },
+  ["news-cache"],
+  {
+    revalidate: 10,
+    tags: ["news"],
+  },
+);
+
+interface IProps {
+  page: number;
+}
+async function News({ page }: IProps) {
+  let news: INews[] = await getCachedNews(page);
+  const totalPages = await prisma.news.count();
+  if (!news)
     return (
       <div className="h-screen flex justify-center items-center">
         <h1 className="font-cairo text-xl md:text-3xl font-bold text-red-900">
@@ -24,11 +43,7 @@ async function News() {
           الأخبار
         </h1>
         <div className="container mx-auto mt-10  px-5 lg:px-0">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 justify-center items-center gap-3 py-4 grid-cols-1">
-            {news.data.map((n) => (
-              <NewsCard news={n} key={n.id} />
-            ))}
-          </div>
+          <NewsClient news={news} totalPages={totalPages} />
         </div>
       </main>
     </div>

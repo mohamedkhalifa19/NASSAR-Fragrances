@@ -69,7 +69,6 @@ function EditProduct() {
   const handleSave = () => {
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
-      console.log(newErrors);
       setErrors(newErrors);
       return;
     }

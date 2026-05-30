@@ -25,6 +25,7 @@ function NewsCard({ news }: IProps) {
         <img
           src={news.imageUrl || ""}
           alt={news.title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 

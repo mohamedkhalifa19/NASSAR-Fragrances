@@ -51,7 +51,6 @@ function FilterationSidebar({
   };
 
   const handelFilteration = () => {
-    console.log(category, perfumes);
     let filteredPerfumes;
     if (category === "للجنسين")
       filteredPerfumes = perfumes.filter(
