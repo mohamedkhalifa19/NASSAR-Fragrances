@@ -1,5 +1,4 @@
-import SkeletonBox from "@/app/components/Skelton/SkeletonBox";
-import { Suspense } from "react";
+import Location from "@/app/components/Location";
 
 async function page() {
   return (
@@ -52,16 +51,7 @@ async function page() {
             </div>
           </div>
           {/* Location */}
-          <Suspense fallback={<SkeletonBox />}>
-            <div className="rounded-2xl overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3432.0602806825373!2d30.722607!3d30.660431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDM5JzM3LjYiTiAzMMKwNDMnMjEuNCJF!5e0!3m2!1sen!2seg!4v1778970728001!5m2!1sen!2seg"
-                width="100%"
-                className="border-0 min-h-[300px] h-full"
-                loading="lazy"
-              />
-            </div>
-          </Suspense>
+          <Location />
         </div>
       </main>
     </div>
