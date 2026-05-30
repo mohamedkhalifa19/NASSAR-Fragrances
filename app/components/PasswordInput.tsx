@@ -37,7 +37,7 @@ function PasswordInput({ form, setForm, errors }: IProps) {
         }}
       />{" "}
       <Button
-        className="absolute left-0 transform translate-y-full -top-1/2"
+        className="absolute left-0 transform translate-y-full md:-top-1/2 -top-1/3 "
         onClick={toggleShow}
         type="button"
       >
