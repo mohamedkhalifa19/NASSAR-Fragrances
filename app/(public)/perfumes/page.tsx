@@ -9,8 +9,8 @@ const getCachedPerfumes = unstable_cache(
     try {
       return await prisma.product.findMany({
         orderBy: { rate: "asc" },
-        take: 5,
-        skip: (page - 1) * 5,
+        take: 6,
+        skip: (page - 1) * 6,
       });
     } catch (err) {
       return [];

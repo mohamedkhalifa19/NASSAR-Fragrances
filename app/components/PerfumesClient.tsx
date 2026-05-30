@@ -1,13 +1,11 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { IProduct } from "@/app/libs/types";
 import FilterationSidebar from "@/app/components/FilterationSidebar";
 import Perfumes from "@/app/(dashboard)/components/Perfumes";
 import SearchBar from "./SearchBar";
-import { PaginationDemo } from "./Pagination";
-import PerfumeCardSkeleton from "./Skelton/PerfumeCardSkeleton";
 
 interface PerfumesClientProps {
   initialPerfumes: IProduct[];
@@ -53,9 +51,14 @@ export default function PerfumesClient({
   }, [initialPerfumes]);
   useEffect(() => {
     router.push("?page=1");
+  }, []);
+  useEffect(() => {
+    if (searchParams?.get("page")) reset();
+  }, [searchParams?.get("page")]);
+  useEffect(() => {
     setFullPerfumes(fullPerfumes);
     setToPrice(`${Math.max(...fullPerfumes.map((p) => p.price || 0))}`);
-  }, []);
+  }, [fullPerfumes]);
   useEffect(() => {
     setSearchTxt(searchParams?.get("search") ?? "");
     if (search.trim()) {
@@ -134,7 +137,7 @@ export default function PerfumesClient({
 
       {isFilterationSidebarOpen && (
         <FilterationSidebar
-          perfumes={initialPerfumes}
+          perfumes={FullPerfumes}
           setFilteredPerfumes={setFilteredPerfumes}
           isFilterationSidebarOpen={isFilterationSidebarOpen}
           setIsFilterationSidebarOpen={setIsFilterationSidebarOpen}

@@ -22,7 +22,7 @@ function NewsClient({ news, totalPages }: IProps) {
         ))}
       </div>
       <div className="my-12">
-        <PaginationDemo pages={totalPages} rowsBerPage={3} />
+        <PaginationDemo pages={totalPages} rowsBerPage={6} />
       </div>
     </div>
   );

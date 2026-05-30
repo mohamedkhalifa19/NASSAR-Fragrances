@@ -8,8 +8,8 @@ const getCachedNews = unstable_cache(
     try {
       return await prisma.news.findMany({
         orderBy: { createdAt: "asc" },
-        take: 3,
-        skip: (page - 1) * 3,
+        take: 6,
+        skip: (page - 1) * 6,
       });
     } catch (err) {
       return [];

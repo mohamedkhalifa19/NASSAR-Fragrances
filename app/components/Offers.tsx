@@ -10,8 +10,8 @@ const getCachedOffers = unstable_cache(
     try {
       return await prisma.offer.findMany({
         orderBy: { createdAt: "asc" },
-        take: 3,
-        skip: (page - 1) * 3,
+        take: 6,
+        skip: (page - 1) * 6,
       });
     } catch (err) {
       return [];
@@ -39,7 +39,7 @@ async function Offers({ page }: { page: number }) {
       <div>
         <OffersClient offers={offers} />
         <div className=" my-12">
-          <PaginationDemo pages={totalPages} rowsBerPage={3} />
+          <PaginationDemo pages={totalPages} rowsBerPage={6} />
         </div>
       </div>
     </>

@@ -61,7 +61,7 @@ function Perfumes({ isFilterationSidebarOpen, perfumes, totalPages }: IProps) {
             </div>
             <div className="my-12">
               {" "}
-              <PaginationDemo pages={totalPages} rowsBerPage={5} />
+              <PaginationDemo pages={totalPages} rowsBerPage={6} />
             </div>
           </Suspense>
         }

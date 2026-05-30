@@ -6,7 +6,7 @@ export default async function PopularPerfumes() {
   let perfumes = [];
   try {
     perfumes = await prisma.product.findMany({
-      orderBy: { rate: "asc" },
+      orderBy: { rate: "desc" },
       take: 3,
     });
     return (
