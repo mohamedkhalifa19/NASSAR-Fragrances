@@ -38,7 +38,7 @@ function NewsCard({ news }: IProps) {
       {/* Content */}
       <div className="p-5 text-right flex-1 flex flex-col" dir="rtl">
         {/* Title */}
-        <h2 className="text-[#1a1a2e] md:text-xl  font-bold font-cairo leading-snug mb-3">
+        <h2 className="text-[#1a1a2e] md:text-xl line-clamp-1  font-bold font-cairo leading-snug mb-3">
           {news.title}
         </h2>
 
