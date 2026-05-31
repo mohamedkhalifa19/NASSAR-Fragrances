@@ -135,7 +135,7 @@ export default function PerfumesClient({
 
       {isFilterationSidebarOpen && (
         <FilterationSidebar
-          perfumes={FullPerfumes}
+          perfumes={originalPerfumes}
           setFilteredPerfumes={setFilteredPerfumes}
           isFilterationSidebarOpen={isFilterationSidebarOpen}
           setIsFilterationSidebarOpen={setIsFilterationSidebarOpen}
