@@ -123,7 +123,7 @@ function ShowOffer() {
 
             {/* Description */}
             {selectedOffer?.description && (
-              <p className="text-sm text-stone-500 w-full  font-cairo text-right leading-relaxed break-words">
+              <p className="text-sm text-stone-500 w-full line-clamp-4  font-cairo text-right leading-relaxed break-words">
                 {" "}
                 {selectedOffer.description}
               </p>
@@ -155,13 +155,13 @@ function ShowOffer() {
         <div className="flex items-center justify-center gap-3 px-6 py-4 border-t border-stone-100 rounded-b-2xl">
           <button
             onClick={handleClose}
-            className="flex-1 max-w-[180px] py-2.5 px-5 rounded-xl bg-stone-100 text-stone-700 font-bold text-sm border border-stone-200 hover:bg-stone-200 transition-colors font-cairo"
+            className="flex-1 max-w-full py-2.5 px-1 rounded-xl bg-stone-100 text-stone-700 font-bold text-sm border border-stone-200 hover:bg-stone-200 transition-colors font-cairo"
           >
             إغلاق
           </button>
           <button
             onClick={handleEdit}
-            className="flex-1 max-w-[180px] py-2.5 px-5 rounded-xl bg-stone-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-stone-900/25 hover:bg-stone-800 transition-colors font-cairo"
+            className="flex-1 max-w-full py-2.5 px-1 rounded-xl bg-stone-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-stone-900/25 hover:bg-stone-800 transition-colors font-cairo"
           >
             <Edit2 size={14} />
             تعديل العرض

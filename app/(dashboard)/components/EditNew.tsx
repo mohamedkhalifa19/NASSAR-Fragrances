@@ -165,13 +165,13 @@ function EditNew() {
         <div className="flex items-center justify-center gap-3 px-6 py-4 border-t border-stone-100 rounded-b-2xl">
           <button
             onClick={handleClose}
-            className="flex-1 max-w-[180px] py-2.5 px-5 rounded-xl bg-white border border-stone-200 text-stone-700 font-bold text-sm hover:bg-stone-50 transition-colors font-cairo"
+            className="flex-1 max-w-full py-2.5 px-1 rounded-xl bg-white border border-stone-200 text-stone-700 font-bold text-sm hover:bg-stone-50 transition-colors font-cairo"
           >
             إلغاء
           </button>
           <button
             onClick={handleSave}
-            className="flex-1 max-w-[180px] py-2.5 px-5 rounded-xl bg-stone-900 text-white font-bold text-sm shadow-lg shadow-stone-900/25 hover:bg-stone-800 transition-colors font-cairo"
+            className="flex-1 max-w-full py-2.5 px-1 rounded-xl bg-stone-900 text-white font-bold text-sm shadow-lg shadow-stone-900/25 hover:bg-stone-800 transition-colors font-cairo"
           >
             حفظ التغييرات
           </button>

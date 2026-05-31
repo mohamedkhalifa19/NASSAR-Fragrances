@@ -51,7 +51,8 @@ function DeleteNew() {
               حذف الخبر
             </AlertDialogTitle>
             <AlertDialogDescription className="text-sm text-stone-500 font-cairo leading-relaxed max-w-xs mx-auto">
-              هل أنت متأكد من حذف الخبر &quot;{selectedNews?.title}
+              هل أنت متأكد من حذف الخبر &quot;
+              <span className="line-clamp-2">{selectedNews?.title}</span>
               &quot;؟
               <br />
               لا يمكن التراجع عن هذا الإجراء.
@@ -78,7 +79,7 @@ function DeleteNew() {
           {/* Description */}
           <div>
             {selectedNews?.description && (
-              <p className="text-sm text-stone-500 w-full font-semibold  font-tajawal  text-right leading-relaxed break-words">
+              <p className="text-sm line-clamp-3 text-stone-500 w-full font-semibold  font-tajawal  text-right leading-relaxed break-words">
                 {" "}
                 {selectedNews.description}
               </p>

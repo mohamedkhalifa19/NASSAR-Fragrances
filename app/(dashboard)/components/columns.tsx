@@ -207,7 +207,7 @@ export const newsColumns = (): ColumnDef<INews>[] => {
       cell: ({ row }) => {
         const title = row.getValue("title") as string;
         return (
-          <p className="max-w-[250px] " title={title}>
+          <p className="max-w-[250px] truncate " title={title}>
             {title}
           </p>
         );

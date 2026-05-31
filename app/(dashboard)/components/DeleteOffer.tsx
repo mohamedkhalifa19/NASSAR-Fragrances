@@ -51,7 +51,8 @@ function DeleteOffer() {
               حذف العرض
             </AlertDialogTitle>
             <AlertDialogDescription className="text-sm text-stone-500 font-cairo leading-relaxed max-w-xs mx-auto">
-              هل أنت متأكد من حذف العرض &quot;{selectedOffer?.description}
+              هل أنت متأكد من حذف العرض &quot;
+              <span className="line-clamp-2">{selectedOffer?.description}</span>
               &quot;؟
               <br />
               لا يمكن التراجع عن هذا الإجراء.
