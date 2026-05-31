@@ -15,7 +15,7 @@ import { toast } from "sonner";
 
 function DeleteNew() {
   const dispatch = useDispatch();
-  const { news } = useSelector((state: RootState) => state);
+  const news = useSelector((state: RootState) => state.news);
   const { selectedNews, isDeleteNews } = news;
   const handleCancel = () => {
     dispatch(setIsDeleteNews(false));

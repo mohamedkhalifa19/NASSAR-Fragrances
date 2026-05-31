@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/pagination";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MouseEvent, useEffect, useState } from "react";
+import { getPages } from "../helpers";
 
 interface IProps {
   pages: number;
@@ -17,23 +18,19 @@ interface IProps {
 export function PaginationDemo({ pages, rowsBerPage }: IProps) {
   const length = Math.ceil(pages / rowsBerPage);
   const router = useRouter();
-  const [page, setPage] = useState<number>(1);
-
   const searchParams = useSearchParams();
-  useEffect(() => {
-    if (!searchParams.get("page")) setPage(1);
-  }, [searchParams]);
+
+  const page = Number(searchParams.get("page")) || 1;
+  const visiablePages = getPages(page, length);
   const handlePrev = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const value = page > 1 ? page - 1 : 1;
-    setPage(value);
     router.refresh();
     router.push(`?page=${value}`);
   };
   const handleNext = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const value = page < length ? page + 1 : 1;
-    setPage(value);
     router.refresh();
     router.push(`?page=${value}`);
   };
@@ -49,7 +46,7 @@ export function PaginationDemo({ pages, rowsBerPage }: IProps) {
           </PaginationItem>
           <div className="mx-8 spx flex items-center">
             {" "}
-            {Array.from({ length: length }).map((_, idx) => (
+            {visiablePages.map((itm, idx) => (
               <PaginationItem
                 key={idx}
                 className={`${idx + 1 === page ? "text-indigo-600 bg-black rounded-md h-8" : ""}`}
@@ -57,12 +54,11 @@ export function PaginationDemo({ pages, rowsBerPage }: IProps) {
                 <PaginationLink
                   onClick={(e) => {
                     e.preventDefault();
-                    setPage(idx + 1);
                     router.refresh();
                     router.push(`?page=${idx + 1}`);
                   }}
                 >
-                  {idx + 1}
+                  {itm != "..." ? idx + 1 : itm}
                 </PaginationLink>
               </PaginationItem>
             ))}

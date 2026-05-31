@@ -16,10 +16,9 @@ import { toast } from "sonner";
 import { IEditProductForm } from "@/app/libs/types";
 const CATEGORIES = ["رجالي", "نسائي", "للجنسين"];
 
-
 function EditProduct() {
   const dispatch = useDispatch();
-  const { perfume } = useSelector((state: RootState) => state);
+  const perfume = useSelector((state: RootState) => state.perfume);
   const { selectedPerfume, isEditPerfume } = perfume;
   const [errors, setErrors] = useState<
     Partial<Record<keyof IEditProductForm, string>>

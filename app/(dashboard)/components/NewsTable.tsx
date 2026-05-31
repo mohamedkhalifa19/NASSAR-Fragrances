@@ -1,15 +1,14 @@
 import { INews } from "@/app/libs/types";
 import { NewsDataTable } from "./NewsDataTable";
-import { prisma } from "@/app/libs/prisma";
 import NewsDashboard from "./news-dashboard";
 import DashboardSkeleton from "@/app/components/Skelton/DashboardSkeleton";
 import TableSkeleton from "@/app/components/Skelton/TableSkeleton";
 
-async function NewsTable() {
+interface IProps {
+  data: INews[];
+}
+async function NewsTable({ data }: IProps) {
   try {
-    const data: INews[] = await prisma.news.findMany({
-      orderBy: { createdAt: "desc" },
-    });
     return (
       <>
         <NewsDashboard />

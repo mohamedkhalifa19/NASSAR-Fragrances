@@ -25,7 +25,7 @@ type FormState = {
 
 function EditNew() {
   const dispatch = useDispatch();
-  const { news } = useSelector((state: RootState) => state);
+  const news = useSelector((state: RootState) => state.news);
   const { selectedNews, isEditNews } = news;
   const [errors, setErrors] = useState<
     Partial<Record<keyof typeof NewsEMPTY_FORM, string>>

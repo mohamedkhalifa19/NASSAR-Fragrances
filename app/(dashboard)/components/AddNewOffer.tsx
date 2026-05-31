@@ -18,7 +18,7 @@ const AVAILABILITY = ["غير متاح", "متاح"];
 
 function AddOffer() {
   const dispatch = useDispatch();
-  const { offer } = useSelector((state: RootState) => state);
+  const offer = useSelector((state: RootState) => state.offer);
   const { isNewOffer } = offer;
 
   const [form, setForm] = useState(EMPTY_FORM);

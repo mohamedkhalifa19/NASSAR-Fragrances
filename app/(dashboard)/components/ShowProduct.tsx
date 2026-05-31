@@ -44,7 +44,7 @@ function StarRating({ rating }: { rating: number }) {
 
 function ShowProduct() {
   const dispatch = useDispatch();
-  const { perfume } = useSelector((state: RootState) => state);
+  const perfume = useSelector((state: RootState) => state.perfume);
   const { isShowPerfume, selectedPerfume } = perfume;
 
   const [activeImg, setActiveImg] = useState(0);

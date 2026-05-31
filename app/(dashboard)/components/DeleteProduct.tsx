@@ -15,7 +15,7 @@ import { toast } from "sonner";
 
 function DeleteProduct() {
   const dispatch = useDispatch();
-  const { perfume } = useSelector((state: RootState) => state);
+  const perfume = useSelector((state: RootState) => state.perfume);
   const { selectedPerfume, isDeletePerfume } = perfume;
 
   const isAvailable = (selectedPerfume?.stockQuantity ?? 0) > 0;

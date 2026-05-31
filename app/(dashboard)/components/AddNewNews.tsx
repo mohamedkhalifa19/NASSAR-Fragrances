@@ -18,7 +18,7 @@ import { NewsEMPTY_FORM as EMPTY_FORM } from "@/app/data";
 
 function AddNewNews() {
   const dispatch = useDispatch();
-  const { news } = useSelector((state: RootState) => state);
+  const news = useSelector((state: RootState) => state.news);
   const { isNewNews } = news;
 
   const [form, setForm] = useState(EMPTY_FORM);

@@ -15,7 +15,7 @@ import { setIsEditNews, setIsShowNews } from "@/app/store/features/news/news";
 
 function ShowNew() {
   const dispatch = useDispatch();
-  const { news } = useSelector((state: RootState) => state);
+  const news = useSelector((state: RootState) => state.news);
   const { selectedNews, isShowNews } = news;
   const [activeImg, setActiveImg] = useState(0);
 

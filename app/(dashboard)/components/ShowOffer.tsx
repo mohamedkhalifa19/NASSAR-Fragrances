@@ -17,7 +17,7 @@ import {
 
 function ShowOffer() {
   const dispatch = useDispatch();
-  const { offer } = useSelector((state: RootState) => state);
+  const offer = useSelector((state: RootState) => state.offer);
   const { selectedOffer, isShowOffer } = offer;
   const [activeImg, setActiveImg] = useState(0);
 

@@ -27,7 +27,7 @@ const AVAILABILITY = ["غير متاح", "متاح"];
 
 function EditOffer() {
   const dispatch = useDispatch();
-  const { offer } = useSelector((state: RootState) => state);
+  const offer = useSelector((state: RootState) => state.offer);
   const { selectedOffer, isEditOffer } = offer;
   const [errors, setErrors] = useState<
     Partial<Record<keyof typeof OfferEMPTY_FORM, string>>

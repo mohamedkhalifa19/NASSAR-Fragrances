@@ -18,7 +18,7 @@ const CATEGORIES = ["رجالي", "نسائي", "للجنسين"];
 
 function AddNewPerfume() {
   const dispatch = useDispatch();
-  const { perfume } = useSelector((state: RootState) => state);
+  const perfume = useSelector((state: RootState) => state.perfume);
   const { isNewPerfume } = perfume;
 
   const [form, setForm] = useState(EMPTY_FORM);

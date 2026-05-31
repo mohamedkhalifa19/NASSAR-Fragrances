@@ -4,13 +4,11 @@ import { OffersDataTable } from "./OffersDataTable";
 import OffersDashboard from "./offers-dashboard";
 import DashboardSkeleton from "@/app/components/Skelton/DashboardSkeleton";
 import TableSkeleton from "@/app/components/Skelton/TableSkeleton";
-
-async function OffersTable() {
+interface IProps {
+  data: IOffer[];
+}
+async function OffersTable({ data }: IProps) {
   try {
-    const data: IOffer[] = await prisma.offer.findMany({
-      orderBy: { createdAt: "desc" },
-    });
-
     return (
       <>
         <OffersDashboard />

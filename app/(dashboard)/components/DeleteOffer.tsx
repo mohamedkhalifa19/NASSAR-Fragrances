@@ -15,7 +15,7 @@ import { toast } from "sonner";
 
 function DeleteOffer() {
   const dispatch = useDispatch();
-  const { offer } = useSelector((state: RootState) => state);
+  const offer = useSelector((state: RootState) => state.offer);
   const { selectedOffer, isDeleteOffer } = offer;
   const handleCancel = () => {
     dispatch(setIsDeleteOffer(false));
