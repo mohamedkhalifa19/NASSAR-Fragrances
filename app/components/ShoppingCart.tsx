@@ -86,13 +86,15 @@ function ShoppingCart({ isShoppingCartOpen, setIsShoppingCartOpen }: IProps) {
             </p>
           </div>
         )}
-        <button
-          onClick={handleWhatsapp}
-          className="font-almarai  w-full  flex items-center justify-center gap-2 bg-black text-white py-2.5 rounded-full text-sm font-medium hover:bg-green-500 hover:text-white transition-all duration-300"
-        >
-          <FaWhatsapp className="text-xl" />
-          اطلب الآن
-        </button>
+        {cartItems.length > 0 && (
+          <button
+            onClick={handleWhatsapp}
+            className="font-almarai  w-full  flex items-center justify-center gap-2 bg-black text-white py-2.5 rounded-full text-sm font-medium hover:bg-green-500 hover:text-white transition-all duration-300"
+          >
+            <FaWhatsapp className="text-xl" />
+            اطلب الآن
+          </button>
+        )}
       </div>
     </div>
   );
