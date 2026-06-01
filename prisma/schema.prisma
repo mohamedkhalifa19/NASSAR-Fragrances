@@ -13,7 +13,7 @@ model Product {
   name          String
   price         Float
   rate          Float   @default(0)
-  discountPrice Float?
+  discountPrice Float? @default(0)
   category      String
   badge         String?
   imageUrl      String?

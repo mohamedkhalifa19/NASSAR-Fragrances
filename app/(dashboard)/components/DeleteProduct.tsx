@@ -71,7 +71,7 @@ function DeleteProduct() {
             <span className="text-sm text-stone-500 font-cairo">
               السعر:{" "}
               <span className="font-bold text-stone-700">
-                {selectedPerfume?.discountPrice?.toLocaleString("ar-SA")} ج.م
+                {selectedPerfume?.price?.toLocaleString("ar-SA")} ج.م
               </span>
             </span>
             <span className="text-sm font-cairo">

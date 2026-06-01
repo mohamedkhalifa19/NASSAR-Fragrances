@@ -98,10 +98,12 @@ function PerfumeCard({ perfume }: IProps) {
             {" "}
             {perfume.price} جنيه
           </span>{" "}
-          <span className="text-gray-700 font-bold line-through text-sm">
-            {" "}
-            {perfume.discountPrice} جنيه
-          </span>{" "}
+          {perfume.discountPrice != 0 && (
+            <span className="text-gray-700 font-bold line-through text-sm">
+              {" "}
+              {perfume.discountPrice} جنيه
+            </span>
+          )}
         </div>
         {/* Buttons */}
         <div className="flex items-center gap-2">

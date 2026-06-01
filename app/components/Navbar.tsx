@@ -157,7 +157,7 @@ export default function Navbar() {
             <IoMdMenu className="text-4xl" />
           </button>
           {isOpen && (
-            <div className="bg-black/95    fixed  p-4 top-0 left-0 w-full h-full z-[20]">
+            <div className="bg-black/95    fixed  p-4 top-0 bottom-0 left-0 w-full h-full z-[20]">
               {" "}
               <div className="links flex flex-col gap-7">
                 <Link

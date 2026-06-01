@@ -181,17 +181,19 @@ function ShowProduct() {
 
             {/* Pricing card */}
             <div className="flex items-center justify-around bg-stone-50 rounded-xl px-4 py-3 border border-stone-100">
-              <div className="flex flex-col items-center gap-0.5">
-                <span className="text-xs text-stone-400 font-semibold">
-                  السعر بعد الخصم
-                </span>
-                <span className="text-2xl font-extrabold text-stone-900 leading-tight">
-                  {selectedPerfume?.discountPrice?.toLocaleString("ar-SA")}
-                  <span className="text-sm font-medium text-stone-400 mr-1">
-                    ج.م
+              {selectedPerfume?.discountPrice != 0 && (
+                <div className="flex flex-col items-center gap-0.5">
+                  <span className="text-xs text-stone-400 font-semibold">
+                    السعر بعد الخصم
                   </span>
-                </span>
-              </div>
+                  <span className="text-2xl font-extrabold text-stone-900 leading-tight">
+                    {selectedPerfume?.discountPrice?.toLocaleString("ar-SA")}
+                    <span className="text-sm font-medium text-stone-400 mr-1">
+                      ج.م
+                    </span>
+                  </span>
+                </div>
+              )}
               <div className="w-px h-10 bg-stone-200" />
               <div className="flex flex-col items-center gap-0.5">
                 <span className="text-xs text-stone-400 font-semibold">

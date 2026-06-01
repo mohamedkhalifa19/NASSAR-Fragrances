@@ -38,7 +38,7 @@ function ShoppingCart({ isShoppingCartOpen, setIsShoppingCartOpen }: IProps) {
   };
   return (
     <div
-      className={`bg-[#0f0f0f] flex  flex-col  overflow-auto text-black transition-transform ease-in-out duration-200 transform ${isShoppingCartOpen ? " translate-x-0" : " translate-x-[-100%]"}    fixed  p-4 top-0 left-0 md:w-1/3 w-full h-full z-[20]`}
+      className={`bg-[#0f0f0f] flex  flex-col  overflow-auto text-black transition-transform ease-in-out duration-200 transform ${isShoppingCartOpen ? " translate-x-0" : " translate-x-[-100%]"}    fixed  p-4 top-0 left-0 bottom-0 md:w-1/3 w-full h-full z-[20]`}
     >
       {" "}
       {/* Header */}
